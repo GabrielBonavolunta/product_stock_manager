@@ -1,0 +1,33 @@
+﻿using product_stock_manager.Entities.Enums;
+
+namespace product_stock_manager.Entities
+{
+    internal class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public double Price { get; set; }
+
+        public Category Category { get; set; }
+        public Color Color { get; set; }
+
+        public Seller Seller { get; set; }
+
+        public Product(int id, string name, double price, Category category, Color color, Seller seller)
+        {
+            Id = id;
+            Name = name;
+            Price = price;
+            Category = category;
+            Color = color;
+            Seller = seller;
+        }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Product: {Name}, Price: {Price}, Category {Category?.Name}, Color: {Color}, Seller {Seller?.Name}";
+        }
+
+    }
+}
