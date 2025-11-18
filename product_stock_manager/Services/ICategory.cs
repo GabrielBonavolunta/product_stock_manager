@@ -8,10 +8,10 @@ namespace product_stock_manager.Services
 
         void AddProduct(Product product);
 
-        void ReadProduct(Product product);
+        bool ReadProduct(int id);
 
-        void UpdateProduct(Product product);
+        bool UpdateProduct(int id, Product newProduct);
 
-        void DeleteProduct(Product product);
+        bool DeleteProduct(int id);
     }
 }

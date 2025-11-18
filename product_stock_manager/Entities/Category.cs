@@ -19,42 +19,49 @@ namespace product_stock_manager.Entities
             Products.Add(p);
         }
 
-        public void ReadProduct(Product p)
+        public bool ReadProduct(int id)
         {
-            foreach (var item in Products)
+            var item = Products.FirstOrDefault(x => x.Id == id);
+            if (item == null)
             {
-                if (item.Id == p.Id)
-                {
-                    Console.WriteLine(item);
-                }
+                return false;
             }
+
+            Console.WriteLine(item);
+            return true;
         }
 
-        public void UpdateProduct(Product p)
+        public bool UpdateProduct(int id, Product newProduct)
         {
-            foreach (var item in Products)
-            {
-                if (item.Id == p.Id)
-                {
-                    item.Id = p.Id;
-                    item.Name = p.Name;
-                    item.Price = p.Price;
-                    item.Category = p.Category;
-                    item.Color = p.Color;
-                    item.Seller = p.Seller;
+            var item = Products.FirstOrDefault(x => x.Id == id);
 
-                }
+            if (item == null)
+            {
+                return false;
             }
+
+            item.Name = newProduct.Name;
+            item.Price = newProduct.Price;
+            item.Category = newProduct.Category;
+            item.Color = newProduct.Color;
+            item.Seller = newProduct.Seller;
+
+            return true;
+
+
         }
 
 
-        public void DeleteProduct(Product p)
+        public bool DeleteProduct(int id)
         {
-            var item = Products.FirstOrDefault(x => x.Id == p.Id);
-            if (item.Id == p.Id)
+            var item = Products.FirstOrDefault(x => x.Id == id);
+            if (item == null)
             {
-                Products.Remove(item);
+                return false;
             }
+
+            Products.Remove(item);
+            return true;
         }
 
         public void ListAll()
