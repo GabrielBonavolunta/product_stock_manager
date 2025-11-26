@@ -35,8 +35,6 @@ namespace product_stock_manager
                 if (op == 1)
                 {
                     Console.WriteLine("Defina os dados do produto:");
-                    Console.Write("Id: ");
-                    int id = int.Parse(Console.ReadLine());
                     Console.Write("Nome: ");
                     string name = Console.ReadLine();
                     Console.Write("Preço: ");
@@ -90,8 +88,37 @@ namespace product_stock_manager
                         continue;
                     }
 
-                    Product product = new Product(id, name, price, currentCategory, color, currentSeller);
+                    Product product = new Product(name, price, currentCategory, color, currentSeller);
                     currentCategory.AddProduct(product);
+                }
+                if (op == 2)
+                {
+                    Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
+                    int catId = int.Parse(Console.ReadLine());
+                    if (catId == 1)
+                    {
+                        currentCategory = c1;
+                    }
+                    else if (catId == 2)
+                    {
+                        currentCategory = c2;
+                    }
+                    else if (catId == 3)
+                    {
+                        currentCategory = c3;
+                    }
+                    else if (catId == 4)
+                    {
+                        currentCategory = c4;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Categoria inválida. Por favor, digite novamente.");
+                        continue;
+                    }
+                    Console.Write("Digite o ID do produto: ");
+                    int id = int.Parse(Console.ReadLine());
+                    currentCategory.ReadProduct(id);
                 }
             }
         }

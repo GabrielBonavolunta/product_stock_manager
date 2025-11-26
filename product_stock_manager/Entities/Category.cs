@@ -4,7 +4,7 @@ namespace product_stock_manager.Entities
 {
     internal class Category : ICategory
     {
-        private int _lastId { get; set; }
+        private int _lastId { get; set; } = 1;
         public int CategoryId { get; set; }
         public string Name { get; set; }
         public List<Product> Products { get; set; } = new List<Product>();
@@ -17,8 +17,9 @@ namespace product_stock_manager.Entities
 
         public void AddProduct(Product p)
         {
-            p.Id = _lastId++;
+            p.Id = _lastId;
             Products.Add(p);
+            _lastId++;
         }
 
         public bool ReadProduct(int id)

@@ -1,4 +1,5 @@
 ﻿using product_stock_manager.Entities.Enums;
+using System.Globalization;
 
 namespace product_stock_manager.Entities
 {
@@ -25,7 +26,7 @@ namespace product_stock_manager.Entities
 
         public override string ToString()
         {
-            return $"Id: {Id}, Product: {Name}, Price: {Price}, Category {Category?.Name}, Color: {Color}, Seller {Seller?.Name}";
+            return $"Id: {Id}, Produto: {Name}, Preço: {Price.ToString("F2", CultureInfo.InvariantCulture)}, Categoria: {Category?.Name}, Cor: {Color}, Vendedor: {Seller?.Name}";
         }
 
     }
