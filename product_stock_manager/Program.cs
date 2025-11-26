@@ -172,7 +172,15 @@ namespace product_stock_manager
                         continue;
                     }
                     Console.Write("Digite o ID do produto a ser lido: ");
-                    int id = int.Parse(Console.ReadLine());
+                    int id = 0; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        id = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                    }
                     currentCategory.ReadProduct(id);
                 }
                 else if (op == 3)
@@ -318,7 +326,15 @@ namespace product_stock_manager
                         continue;
                     }
                     Console.Write("Digite o ID do produto a ser deletado: ");
-                    int id = int.Parse(Console.ReadLine());
+                    int id = 0; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        id = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                    }
                     currentCategory.DeleteProduct(id);
                 }
                 else if (op == 5)
