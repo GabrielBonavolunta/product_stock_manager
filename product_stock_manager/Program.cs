@@ -30,7 +30,7 @@ namespace product_stock_manager
             char opt = 'S';
             while (opt == 'S' || opt == 's')
             {
-                Console.Write("Insira um número para realizar as operações: 1 - Criar, 2 - Ler, 3 - Atualizar, 4 - Deletar: ");
+                Console.Write("Insira um número para realizar as operações: 1 - Criar, 2 - Ler, 3 - Atualizar, 4 - Deletar, 5 - Listar: ");
                 int op = int.Parse(Console.ReadLine());
                 if (op == 1)
                 {
@@ -210,6 +210,37 @@ namespace product_stock_manager
                     Console.Write("Digite o ID do produto a ser deletado: ");
                     int id = int.Parse(Console.ReadLine());
                     currentCategory.DeleteProduct(id);
+                }
+                if (op == 5)
+                {
+                    Console.WriteLine("Escolha uma categoria para listar todos os produtos: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
+                    int catId = int.Parse(Console.ReadLine());
+                    if (catId == 1)
+                    {
+                        currentCategory = c1;
+                    }
+                    else if (catId == 2)
+                    {
+                        currentCategory = c2;
+                    }
+                    else if (catId == 3)
+                    {
+                        currentCategory = c3;
+                    }
+                    else if (catId == 4)
+                    {
+                        currentCategory = c4;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Categoria inválida. Por favor, digite novamente.");
+                        continue;
+                    }
+                    Console.WriteLine("Listando todos os produtos...");
+                    currentCategory.ListAll();
+                } else
+                {
+                    Console.WriteLine("Por favor, escolha uma das 5 opções acima.");
                 }
             }
         }
