@@ -38,7 +38,16 @@ namespace product_stock_manager
                     Console.Write("Nome: ");
                     string name = Console.ReadLine();
                     Console.Write("Preço: ");
-                    double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    double price = 0.0;
+                    try
+                    {
+                        price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, insira um preço válido.");
+                        continue;
+                    }
                     Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
                     int catId = int.Parse(Console.ReadLine());
                     if (catId == 1)
@@ -63,7 +72,16 @@ namespace product_stock_manager
                         continue;
                     }
                     Console.Write("Cor: ");
-                    Color color = Enum.Parse<Color>(Console.ReadLine());
+                    Color color;
+                    try
+                    {
+                        color = Enum.Parse<Color>(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, insira uma cor válida.");
+                        continue;
+                    }
                     Console.Write("Escolha um vendedor: 1-4: ");
                     int sellId = int.Parse(Console.ReadLine());
                     if (sellId == 1)
@@ -123,12 +141,21 @@ namespace product_stock_manager
                 if (op == 3)
                 {
 
-                    Console.WriteLine("Digite os novos valores do produto: ");
+                    Console.WriteLine("Digite os novos dados do produto: ");
 
                     Console.Write("Nome: ");
                     string name = Console.ReadLine();
                     Console.Write("Preço: ");
-                    double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    double price = 0.0;
+                    try
+                    {
+                        price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, insira um preço válido.");
+                        continue;
+                    }
                     Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
                     int catId = int.Parse(Console.ReadLine());
                     if (catId == 1)
@@ -153,7 +180,16 @@ namespace product_stock_manager
                         continue;
                     }
                     Console.Write("Cor: ");
-                    Color color = Enum.Parse<Color>(Console.ReadLine());
+                    Color color;
+                    try
+                    {
+                        color = Enum.Parse<Color>(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, insira uma cor válida.");
+                        continue;
+                    }
                     Console.Write("Escolha um vendedor: 1-4: ");
                     int sellId = int.Parse(Console.ReadLine());
                     if (sellId == 1)
@@ -241,6 +277,12 @@ namespace product_stock_manager
                 } else
                 {
                     Console.WriteLine("Por favor, escolha uma das 5 opções acima.");
+                }
+                Console.WriteLine("Continuar usando o sistema? (S/N).");
+                opt = char.Parse(Console.ReadLine());
+                if (opt == 'N' || opt == 'n')
+                {
+                    Console.WriteLine("Obrigado por usar o sistema de estoque de produtos!");
                 }
             }
         }
