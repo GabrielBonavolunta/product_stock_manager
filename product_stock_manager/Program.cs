@@ -18,7 +18,7 @@ namespace product_stock_manager
             Seller s4 = new Seller(4, "Mariana Freitas", "marianafreitas@gmail.com");
             Seller currentSeller = null;
 
-            // Criação manual de produtos para referência
+            // Criação manual de categorias para referência
 
             Category c1 = new Category(1, "Smartphones");
             Category c2 = new Category(2, "Notebooks");
@@ -116,9 +116,71 @@ namespace product_stock_manager
                         Console.WriteLine("Categoria inválida. Por favor, digite novamente.");
                         continue;
                     }
-                    Console.Write("Digite o ID do produto: ");
+                    Console.Write("Digite o ID do produto a ser lido: ");
                     int id = int.Parse(Console.ReadLine());
                     currentCategory.ReadProduct(id);
+                }
+                if (op == 3)
+                {
+
+                    Console.WriteLine("Digite os novos valores do produto: ");
+
+                    Console.Write("Nome: ");
+                    string name = Console.ReadLine();
+                    Console.Write("Preço: ");
+                    double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
+                    int catId = int.Parse(Console.ReadLine());
+                    if (catId == 1)
+                    {
+                        currentCategory = c1;
+                    }
+                    else if (catId == 2)
+                    {
+                        currentCategory = c2;
+                    }
+                    else if (catId == 3)
+                    {
+                        currentCategory = c3;
+                    }
+                    else if (catId == 4)
+                    {
+                        currentCategory = c4;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Categoria inválida. Por favor, digite novamente.");
+                        continue;
+                    }
+                    Console.Write("Cor: ");
+                    Color color = Enum.Parse<Color>(Console.ReadLine());
+                    Console.Write("Escolha um vendedor: 1-4: ");
+                    int sellId = int.Parse(Console.ReadLine());
+                    if (sellId == 1)
+                    {
+                        currentSeller = s1;
+                    }
+                    else if (sellId == 2)
+                    {
+                        currentSeller = s2;
+                    }
+                    else if (sellId == 3)
+                    {
+                        currentSeller = s3;
+                    }
+                    else if (sellId == 4)
+                    {
+                        currentSeller = s4;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vendedor inválido. Por favor, digite novamente.");
+                        continue;
+                    }
+
+                    Console.Write("Digite o ID do produto a ser atualizado.");
+                    int id = int.Parse(Console.ReadLine());
+                    currentCategory.UpdateProduct(id, new Product(name, price, currentCategory, color, currentSeller));
                 }
             }
         }
