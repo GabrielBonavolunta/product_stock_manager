@@ -31,14 +31,24 @@ namespace product_stock_manager
             while (opt == 'S' || opt == 's')
             {
                 Console.Write("Insira um número para realizar as operações: 1 - Criar, 2 - Ler, 3 - Atualizar, 4 - Deletar, 5 - Listar: ");
-                int op = int.Parse(Console.ReadLine());
+                int op = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                try
+                {
+                    op = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Por favor, digite um número.");
+                    continue;
+                }
+
                 if (op == 1)
                 {
                     Console.WriteLine("Defina os dados do produto:");
                     Console.Write("Nome: ");
                     string name = Console.ReadLine();
                     Console.Write("Preço: ");
-                    double price = 0.0;
+                    double price = 0.0; // Valor padrão temporário para o try/catch verificar o tipo do dado
                     try
                     {
                         price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
@@ -49,7 +59,16 @@ namespace product_stock_manager
                         continue;
                     }
                     Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
-                    int catId = int.Parse(Console.ReadLine());
+                    int catId = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        catId = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                        continue;
+                    }
                     if (catId == 1)
                     {
                         currentCategory = c1;
@@ -83,7 +102,16 @@ namespace product_stock_manager
                         continue;
                     }
                     Console.Write("Escolha um vendedor: 1-4: ");
-                    int sellId = int.Parse(Console.ReadLine());
+                    int sellId = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        sellId = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                        continue;
+                    }
                     if (sellId == 1)
                     {
                         currentSeller = s1;
@@ -109,10 +137,19 @@ namespace product_stock_manager
                     Product product = new Product(name, price, currentCategory, color, currentSeller);
                     currentCategory.AddProduct(product);
                 }
-                if (op == 2)
+                else if (op == 2)
                 {
                     Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
-                    int catId = int.Parse(Console.ReadLine());
+                    int catId = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        catId = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                        continue;
+                    }
                     if (catId == 1)
                     {
                         currentCategory = c1;
@@ -138,7 +175,7 @@ namespace product_stock_manager
                     int id = int.Parse(Console.ReadLine());
                     currentCategory.ReadProduct(id);
                 }
-                if (op == 3)
+                else if (op == 3)
                 {
 
                     Console.WriteLine("Digite os novos dados do produto: ");
@@ -157,7 +194,17 @@ namespace product_stock_manager
                         continue;
                     }
                     Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
-                    int catId = int.Parse(Console.ReadLine());
+                    int catId = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        catId = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                        continue;
+                    }
+                    ;
                     if (catId == 1)
                     {
                         currentCategory = c1;
@@ -191,7 +238,16 @@ namespace product_stock_manager
                         continue;
                     }
                     Console.Write("Escolha um vendedor: 1-4: ");
-                    int sellId = int.Parse(Console.ReadLine());
+                    int sellId = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        sellId = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                        continue;
+                    }
                     if (sellId == 1)
                     {
                         currentSeller = s1;
@@ -215,13 +271,31 @@ namespace product_stock_manager
                     }
 
                     Console.Write("Digite o ID do produto a ser atualizado.");
-                    int id = int.Parse(Console.ReadLine());
+                    int id = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        id = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                        continue;
+                    }
                     currentCategory.UpdateProduct(id, new Product(name, price, currentCategory, color, currentSeller));
                 }
-                if (op == 4)
+                else if (op == 4)
                 {
                     Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
-                    int catId = int.Parse(Console.ReadLine());
+                    int catId = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        catId = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                        continue;
+                    }
                     if (catId == 1)
                     {
                         currentCategory = c1;
@@ -247,10 +321,19 @@ namespace product_stock_manager
                     int id = int.Parse(Console.ReadLine());
                     currentCategory.DeleteProduct(id);
                 }
-                if (op == 5)
+                else if (op == 5)
                 {
                     Console.WriteLine("Escolha uma categoria para listar todos os produtos: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
-                    int catId = int.Parse(Console.ReadLine());
+                    int catId = 1; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                    try
+                    {
+                        catId = int.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Por favor, digite um número.");
+                        continue;
+                    }
                     if (catId == 1)
                     {
                         currentCategory = c1;
@@ -274,12 +357,22 @@ namespace product_stock_manager
                     }
                     Console.WriteLine("Listando todos os produtos...");
                     currentCategory.ListAll();
-                } else
+                }
+                else
                 {
                     Console.WriteLine("Por favor, escolha uma das 5 opções acima.");
                 }
                 Console.WriteLine("Continuar usando o sistema? (S/N).");
-                opt = char.Parse(Console.ReadLine());
+                opt = 'S'; // Valor padrão temporário para o try/catch verificar o tipo do dado
+                try
+                {
+                    opt = char.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Por favor, digite um letra válida.");
+                    continue;
+                }
                 if (opt == 'N' || opt == 'n')
                 {
                     Console.WriteLine("Obrigado por usar o sistema de estoque de produtos!");
