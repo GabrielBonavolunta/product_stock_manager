@@ -14,9 +14,8 @@ namespace product_stock_manager.Entities
 
         public Seller Seller { get; set; }
 
-        public Product(int id, string name, double price, Category category, Color color, Seller seller)
+        public Product(string name, double price, Category category, Color color, Seller seller)
         {
-            Id = id;
             Name = name;
             Price = price;
             Category = category;

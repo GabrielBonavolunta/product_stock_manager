@@ -2,10 +2,13 @@
 {
     public enum Color
     {
-        Red = 0,
-        Green = 1,
-        Blue = 2,
-        Orange = 3,
-        Purple = 4,
+        Preto = 0,
+        Branco = 1,
+        Cinza = 2,
+        Vermelho = 3,
+        Verde = 4,
+        Azul = 5,
+        Laranja = 6,
+        Roxo = 7
     }
 }

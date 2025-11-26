@@ -4,6 +4,7 @@ namespace product_stock_manager.Entities
 {
     internal class Category : ICategory
     {
+        private int _lastId { get; set; }
         public int CategoryId { get; set; }
         public string Name { get; set; }
         public List<Product> Products { get; set; } = new List<Product>();
@@ -16,6 +17,7 @@ namespace product_stock_manager.Entities
 
         public void AddProduct(Product p)
         {
+            p.Id = _lastId++;
             Products.Add(p);
         }
 
@@ -24,6 +26,7 @@ namespace product_stock_manager.Entities
             var item = Products.FirstOrDefault(x => x.Id == id);
             if (item == null)
             {
+                Console.WriteLine("Erro na leitura: ID não existe.");
                 return false;
             }
 
@@ -37,6 +40,7 @@ namespace product_stock_manager.Entities
 
             if (item == null)
             {
+                Console.WriteLine("Erro na atualização: ID não existe.");
                 return false;
             }
 
@@ -57,6 +61,7 @@ namespace product_stock_manager.Entities
             var item = Products.FirstOrDefault(x => x.Id == id);
             if (item == null)
             {
+                Console.WriteLine("Erro ao remover: ID não existe.");
                 return false;
             }
 
