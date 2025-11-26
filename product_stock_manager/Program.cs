@@ -182,6 +182,35 @@ namespace product_stock_manager
                     int id = int.Parse(Console.ReadLine());
                     currentCategory.UpdateProduct(id, new Product(name, price, currentCategory, color, currentSeller));
                 }
+                if (op == 4)
+                {
+                    Console.WriteLine("Escolha uma categoria: 1 - Smartphones, 2 - Notebooks, 3 - Tablets, 4 - Televisões: ");
+                    int catId = int.Parse(Console.ReadLine());
+                    if (catId == 1)
+                    {
+                        currentCategory = c1;
+                    }
+                    else if (catId == 2)
+                    {
+                        currentCategory = c2;
+                    }
+                    else if (catId == 3)
+                    {
+                        currentCategory = c3;
+                    }
+                    else if (catId == 4)
+                    {
+                        currentCategory = c4;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Categoria inválida. Por favor, digite novamente.");
+                        continue;
+                    }
+                    Console.Write("Digite o ID do produto a ser deletado: ");
+                    int id = int.Parse(Console.ReadLine());
+                    currentCategory.DeleteProduct(id);
+                }
             }
         }
     }
